@@ -1,0 +1,179 @@
+:root {
+    --primary: #4361ee;
+    --primary-hover: #3a56d4;
+    --danger: #f72585;
+    --danger-hover: #e5177b;
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --text: #2b2d42;
+    --text-light: #8d99ae;
+    --border: #e9ecef;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: all 0.2s ease;
+  }
+  
+  body {
+    width: 320px;
+    padding: 16px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text);
+  }
+  
+  .controls {
+    display: flex;
+    gap: 8px;
+  }
+  
+  #search {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    transition: var(--transition);
+    background-color: var(--card-bg);
+  }
+  
+  #search:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+  }
+  
+  #add-current {
+    padding: 10px 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    transition: var(--transition);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+  
+  #add-current:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+  }
+  
+  #add-current:active {
+    transform: translateY(0);
+  }
+  
+  #bookmarks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  #bookmarks::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  #bookmarks::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  
+  #bookmarks::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  
+  #bookmarks li {
+    padding: 12px 16px;
+    background: var(--card-bg);
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  #bookmarks li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  #bookmarks li a {
+    color: var(--text);
+    text-decoration: none;
+    flex-grow: 1;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #bookmarks li a::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  }
+  
+  .delete {
+    background: var(--danger);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+  
+  .delete:hover {
+    background: var(--danger-hover);
+  }
+  
+  .delete svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-light);
+    font-size: 14px;
+  }
+  
+  .favicon {
+    width: 16px;
+    height: 16px;
+  }
